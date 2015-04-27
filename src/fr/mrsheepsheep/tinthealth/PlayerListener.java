@@ -19,7 +19,7 @@ public class PlayerListener implements Listener {
 		Bukkit.getServer().getPluginManager().registerEvents(this, plugin);
 	}
 
-	@EventHandler
+	@EventHandler(ignoreCancelled = true)
 	protected void onDamage(EntityDamageEvent e){
 		if (e.getEntity() instanceof Player){
 			Player p = (Player) e.getEntity();
@@ -47,7 +47,7 @@ public class PlayerListener implements Listener {
 		}
 	}
 
-	@EventHandler
+	@EventHandler(ignoreCancelled = true)
 	protected void onTeleport(PlayerTeleportEvent e){
 		if (!plugin.fade){
 			final Player p = e.getPlayer();
@@ -63,7 +63,7 @@ public class PlayerListener implements Listener {
 		}
 	}
 
-	@EventHandler
+	@EventHandler(ignoreCancelled = true)
 	protected void onHeal(EntityRegainHealthEvent e){
 		if (!plugin.fade){
 			if (e.getEntity() instanceof Player){
